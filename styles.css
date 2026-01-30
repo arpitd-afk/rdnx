@@ -498,6 +498,13 @@ button {
         margin-bottom: 40px;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 12px; /* Reduce gap slightly for mobile */
+    }
+    
+    .hero-cta .btn {
+        padding: 12px 20px; /* Slightly smaller padding to fit side by side */
+        font-size: 14px;
+        flex: 0 0 auto; /* Don't stretch */
     }
 }
 
@@ -1076,23 +1083,27 @@ button {
     }
     
     .infra-badge {
-        position: static;
-        margin-top: -40px;
-        margin-left: auto;
-        margin-right: auto;
-        width: fit-content;
+        position: absolute;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        width: auto;
         transform: none;
+        bottom: 20px;
+        right: 0;
     }
     
     .infra-image-box {
         padding: 0;
+        position: relative; /* Ensure it stays relative for absolute child */
     }
 }
 
 /* Mobile Portrait */
 @media (max-width: 480px) {
     .about-features {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr; /* Keep 2 columns on mobile portrait */
+        gap: 15px;
     }
     
     .feature-card {
@@ -1545,16 +1556,20 @@ button {
     }
     
     .cta-actions {
-        flex-direction: column;
+        flex-direction: row; /* Keep row direction */
         align-items: center;
         gap: 15px;
+        flex-wrap: wrap; /* Allow wrapping if screen is extremely small */
+        justify-content: center;
     }
     
     .footer-cta .btn-cta-primary,
     .footer-cta .btn-cta-phone {
-        width: 100%;
-        min-width: 0;
-        max-width: 320px;
+        width: auto; /* Let content dictate width */
+        min-width: 140px; /* Minimum clickable width */
+        max-width: none;
+        padding: 12px 20px; /* Slightly smaller padding for mobile */
+        font-size: 14px;
     }
 }
 
