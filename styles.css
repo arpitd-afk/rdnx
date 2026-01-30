@@ -463,7 +463,7 @@ button {
 
 /* Hero Title */
 .hero-title {
-    font-size: 48px;
+    font-size: 44px;
     font-weight: 700;
     line-height: 1.15;
     color: var(--color-white);
@@ -477,7 +477,7 @@ button {
 
 /* Hero Description */
 .hero-description {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 32px;
@@ -577,11 +577,13 @@ button {
     margin-bottom: 16px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: start;
 }
 
 .about-title {
     font-size: 42px;
     font-weight: 800;
+    text-align: start;
     line-height: 1.2;
     color: var(--color-dark);
     margin-bottom: 24px;
@@ -589,6 +591,7 @@ button {
 
 .about-description {
     font-size: 16px;
+    text-align: start;
     line-height: 1.8;
     color: var(--color-gray-600);
     margin-bottom: 32px;
@@ -605,6 +608,7 @@ button {
     border-radius: 30px;
     font-weight: 600;
     font-size: 15px;
+    text-align: start !important;
 }
 
 .btn-about:hover {
@@ -800,7 +804,7 @@ button {
 
 .product-specs li {
     display: flex;
-    align-items: center;
+    align-items: start;
     gap: 12px;
     font-size: 14px;
     color: #64748b;
@@ -967,7 +971,7 @@ button {
 
 .infra-content .section-description {
     margin: 0 0 25px;
-    text-align: left;
+    text-align: start;
     font-size: 14px;
     line-height: 1.7;
 }
@@ -981,7 +985,7 @@ button {
 
 .infra-feature-item {
     display: flex;
-    align-items: center;
+    align-items: start;
     gap: 10px;
     font-size: 13.5px;
     font-weight: 600;
@@ -993,7 +997,6 @@ button {
 /* Tablet */
 @media (max-width: 1200px) {
     .infra-card {
-        gap: 40px;
         padding: 40px;
     }
     
@@ -1033,8 +1036,7 @@ button {
     
     .infra-card {
         grid-template-columns: 1fr;
-        gap: 60px;
-        padding: 40px;
+        padding: 10px;
     }
     
     .infra-content {
@@ -1043,7 +1045,7 @@ button {
     }
     
     .infra-content .section-description {
-        text-align: center;
+        text-align: start;
     }
     
     .infra-features {
@@ -1077,7 +1079,7 @@ button {
     }
     
     .product-specs li {
-        justify-content: center;
+        justify-content: start;
     }
     
     .products-sidebar {
@@ -1159,7 +1161,7 @@ button {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 30px;
-    border-radius: 16px;
+    border-radius: 10px;
     text-align: center;
     transition: all 0.3s ease;
 }
@@ -1188,7 +1190,7 @@ button {
 }
 
 .cert-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--color-white);
     margin-bottom: 8px;
@@ -1284,7 +1286,7 @@ button {
 
 .solar-card {
     background: #15803d;
-    border-radius: 30px;
+    border-radius: 20px;
     padding: 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1329,17 +1331,18 @@ button {
 }
 
 .btn-solar {
-    display: inline-flex;
+   display: inline-flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
     background: transparent;
     color: var(--color-white);
     border: 1.5px solid rgba(255, 255, 255, 0.4);
-    padding: 14px 45px;
-    border-radius: 30px;
-    font-weight: 700;
-    min-width: 220px;
-    justify-content: center;
+    min-width: 160px;
     transition: all 0.3s;
 }
 
@@ -1393,7 +1396,7 @@ button {
 
 @media (max-width: 600px) {
     .certs-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 2;
     }
     
     .clients-grid {
