@@ -1133,10 +1133,10 @@ button {
 .certifications {
     padding: 100px 0;
     background-color: #0f172a;
-    background-image: 
-        linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
-    background-size: 30px 30px;
+    background-image: url('/public/bgsec.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .section-header.contrast .section-title {
@@ -1363,6 +1363,10 @@ button {
 @media (max-width: 1100px) {
     .certs-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .certifications {
+        background-attachment: scroll;
     }
     
     .solar-card {
