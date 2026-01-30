@@ -48,6 +48,7 @@
 html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -58,6 +59,7 @@ body {
     background-color: var(--color-white);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 a {
@@ -1701,6 +1703,18 @@ button {
     color: #94a3b8;
 }
 
+.solar-illustration {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.solar-gif {
+    max-width: 100%;
+    height: auto;
+}
+
 .sub-footer-container {
     display: flex;
     justify-content: space-between;
@@ -2077,8 +2091,6 @@ button {
 .facility-img-main {
     width: 100%;
     height: 100%;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .overlapping-badge {
@@ -2267,6 +2279,8 @@ button {
 .contact-section {
     padding: 100px 0;
     background-color: var(--color-white);
+    width: 100%;
+    overflow: hidden;
 }
 
 .contact-main-grid {
@@ -2317,6 +2331,7 @@ button {
 
 .form-group input, 
 .form-group textarea {
+    width: 100%;
     padding: 15px 20px;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
@@ -2846,5 +2861,108 @@ button {
     }
     .cert-item-card {
         padding: 40px 30px;
+    }
+}
+
+/* ===== Global Mobile Refinements (All Pages) ===== */
+@media (max-width: 768px) {
+    /* Unified Mobile Padding */
+    .sub-hero { padding: 100px 0 50px; }
+    .hero-sub-title { font-size: 32px; }
+    
+    .product-details-section,
+    .capacity-section,
+    .features-dark-section,
+    .facility-section,
+    .machinery-section,
+    .stats-bar-section,
+    .quality-policy-section,
+    .certifications-grid-section,
+    .testing-protocol-section,
+    .contact-section,
+    .team-section,
+    .why-choose,
+    .overview-section {
+        padding: 50px 0;
+    }
+
+    /* Force Capacity Actions to be Row on Mobile (Visual Polish) */
+    .cap-actions {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .cap-actions .btn {
+         padding: 12px 20px;
+         font-size: 14px;
+         flex: 1 1 auto; /* Allow growth but keep side-by-side vibe */
+         min-width: fit-content;
+    }
+    
+    /* Contact Form Tweaks */
+    .contact-form-card {
+        padding: 30px 20px;
+    }
+    
+    .form-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+    
+    /* Ensure Machinery Grid spacing is nice */
+    .machinery-grid {
+        gap: 15px;
+    }
+    
+    /* Ensure Stats Bar items have spacing */
+    .stats-bar-item {
+        margin-bottom: 30px;
+    }
+    .stats-bar-item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Extra Small Devices (Phone Portrait) */
+@media (max-width: 480px) {
+    /* Reduce container padding to give more safe area */
+    .container {
+        padding: 0 16px !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        margin: 0 auto !important;
+    }
+
+    .contact-form-card, 
+    .info-card-clean {
+        padding: 25px 15px !important;
+        width: 100% !important;
+    }
+    
+    /* Force inputs to stay within bounds */
+    .form-group input, 
+    .form-group textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    .info-text p, .info-row a {
+        word-break: break-word; /* Ensure long emails break */
+        overflow-wrap: anywhere;
+    }
+
+    .header .btn-primary {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    /* Reset margins for grids */
+    .row, .contact-main-grid {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
     }
 }

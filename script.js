@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
     };
 
-    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    }
 
     // Close mobile menu when clicking a link
     navLinks.forEach(link => {
@@ -204,12 +206,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Keyboard accessibility for mobile menu
-    mobileMenuToggle.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleMobileMenu();
-        }
-    });
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMobileMenu();
+            }
+        });
+    }
 
     // Close mobile menu on Escape key
     document.addEventListener('keydown', (e) => {
@@ -217,6 +221,54 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleMobileMenu();
         }
     });
+
+    // Contact Form Handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('.btn-send');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const response = await fetch('mail.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    alert('Message sent successfully! We will get back to you soon.');
+                    contactForm.reset();
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An unexpected error occurred. Please try again later.');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    }
 
     console.log('RDNX Industries - Hero Section Initialized');
 });
